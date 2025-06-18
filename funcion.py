@@ -1,52 +1,29 @@
-import os
-
-# Requisitos del Proyecto
-# La aplicación debe permitir al usuario:
-# 1.	Agregar un contacto: nombre, teléfono, email.
-# 2.	Listar contactos: mostrar todos los contactos guardados.
-# 3.	Buscar un contacto por nombre.
-# 4.	Eliminar un contacto.
-# 5.	Salir del programa.
-# Debe usarse un menú para navegar entre estas opciones.
-# La estructura de datos puede ser una lista de diccionarios.
-# ________________________________________
-# Organización del Trabajo
-# •	El repositorio debe ser creado por uno de los integrantes del grupo y compartido con los otros.
-# •	Todos deben clonar el repositorio en su computadora local.
-# •	Cada alumno trabajará en una rama propia (ejemplo: rama-juan, rama-maria, rama-carlos).
-# •	Cada uno será responsable de una parte del programa:
-# o	Alumno 1: Función para agregar y mostrar contactos.
-# o	Alumno 2: Función para buscar y eliminar contactos.
-# o	Alumno 3: Estructura del menú principal y control de flujo del programa.
-
-while True:
-    os.system("cls")
-    print("1) Agregar un contacto: nombre, teléfono, email")
-    print("2) Listar contactos: mostrar todos los contactos guardados")
-    print("3) Buscar un contacto por nombre")
-    print("4) Eliminar un contacto")
-    print("5) Salir del programa")
-    try:
-        opcion=int(input("ingrese opcion"))
-        if opcion== 1:
-            os.system("cls")
-        
-        elif opcion== 2:
-            os.system("cls")
-        
-        elif opcion== 3:
-            os.system("cls")
-        
-        elif opcion== 4:
-            os.system("cls")
-        
-        elif opcion== 5:
-            os.system("cls")
-            print("adios")
+def agregar(nombres, correos, telefonos):
+    while True:
+        nombre = input("Ingrese el nombre\n") 
+        if len(nombre) > 2:
+            nombres.append(nombre)
+            print("Nombre ingresado satisfactoriamente")
             break
         else:
-            print("opcion no existe")
-                
-        
-    except:
-        print("ingrese un numero")
+            print("El nombre ingresado no cumple con los requisitos")
+    while True:
+        correo = input("Ingrese su correo electrónico")
+        if len(correo) > 4 and "@" in correo:
+            correos.append(correo)
+            print("Correo electrónico agregado exitosamente")
+            break
+        else:
+            print("Correo electrónico ingresado inválido")        
+    while True:
+        try:
+            telefono = (input("Ingrese el numero celular de 8 digitos\n"))
+            if  len(telefono) == 8: 
+                telefono = int(telefono)
+                telefonos.append(telefono)
+                print("Número telefónico ingresado satisfactoriamente")
+                break
+            else:
+                ("Número ingresado es inválido")            
+        except:
+            print("El número de teléfono debe ser números enteros y de 8 digitos")
